@@ -3,7 +3,9 @@ extends layout
 block content
 
 	h1= title
-	p Below are countries of the world.
+	p Please enter a country name to see more information about it.
+	div
+		input(name="searchInput")#inputField 
 	div#btn-div
-		button#country-btn Load Countries
+		button#country-btn Search Countries
 		

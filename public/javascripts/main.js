@@ -2,7 +2,6 @@ $(function() {
 	$.ajax('/countries', {
 		success: function(data) {
 			for (i=0; i<data.length; i++) {
-				console.log(data[i])
 				$('body').append('<br>')
 				$('body').append('<div>' + 'Name: ' + data[i].name + '<div>')
 				$('body').append('<div>' + 'French Name: ' + data[i].frenchName + '<div>')
@@ -16,10 +15,12 @@ $(function() {
 })
 
 $('#country-btn').click(function() {
-	$.ajax('/countries', {
-		success: function(data){
-			console.log('Data: ', data);
-
+	$.ajax('/search', {
+		data: {
+			name: $('#inputField').val()
+		},
+		success: function (data) {
+			console.log(data);
 		}
-	})
-})
+	});
+});
