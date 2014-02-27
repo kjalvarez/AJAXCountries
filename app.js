@@ -38,13 +38,11 @@ app.get('/countries', function (req, res) {
 
 app.get('/search', function (req, res) {
 	var countries = countryList.findAll();
-	for (var i=0; i<countries.length; i++) {
-		if (req.query.name===countries[i].name){
-			res.send("Something matches!");
-		} else {
-			res.send('There is no match');
-		}
-	}
+	countries.filter(function(val){
+		if (val.name===req.query.name) {
+			res.send("There's a match!")
+		} 
+	});
 });
 
 

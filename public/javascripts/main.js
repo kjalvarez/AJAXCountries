@@ -14,6 +14,8 @@ $(function() {
 	})
 })
 
+$(document).on('ready', function() {
+
 $('#country-btn').click(function() {
 	$.ajax('/search', {
 		data: {
@@ -24,3 +26,4 @@ $('#country-btn').click(function() {
 		}
 	});
 });
+})
