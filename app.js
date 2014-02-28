@@ -38,11 +38,12 @@ app.get('/countries', function (req, res) {
 
 app.get('/search', function (req, res) {
 	var countries = countryList.findAll();
-	countries.filter(function(val){
+	var foundCountries = countries.filter(function(val){
 		if (val.name===req.query.name) {
-			res.send("There's a match!")
+			return true;
 		} 
 	});
+	res.send(foundCountries)
 });
 
 
